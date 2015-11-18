@@ -29,7 +29,7 @@ CREATE (Galway:County {name: "Galway"}),
        (Wexford:County {name: "Wexford"}),
        (Wicklow:County {name: "Wicklow"}),
        (Meath:County {name: "Meath"}),
-       (WMeath:County {name: "West Meath"}),
+       (Westmeath:County {name: "Westmeath"}),
        (Louth:County {name: "Louth"}),
        (Longford:County {name: "Longford"}),
        (Carlow:County {name: "Carlow"}),
@@ -76,7 +76,7 @@ RETURN
 MATCH
         (county:County),(province:Province)
 WHERE
-      county.name IN ['Dublin','Kildare','Laois','Offaly','Kilkenny','Wexford','Wicklow','Meath','West Meath','Louth','Longford','Carlow']
+      county.name IN ['Dublin','Kildare','Laois','Offaly','Kilkenny','Wexford','Wicklow','Meath','Westmeath','Louth','Longford','Carlow']
       AND province.name = 'Leinster'
 CREATE
       (county)-[county_in:IN_PROVINCE_OF]->(province)
@@ -123,7 +123,7 @@ RETURN
 MATCH
         (county:County),(country:Country)
 WHERE
-      county.name IN ['Dublin','Kildare','Laois','Offaly','Kilkenny','Wexford','Wicklow','Meath','West Meath','Louth','Longford','Carlow']
+      county.name IN ['Dublin','Kildare','Laois','Offaly','Kilkenny','Wexford','Wicklow','Meath','Westmeath','Louth','Longford','Carlow']
       AND country.name = 'Eire'
 CREATE
       (county)-[country_in:IN_COUNTRY_OF]->(country)
