@@ -45,7 +45,7 @@ CREATE (Galway:County {name: "Galway"}),
 
 
 ////////////////  CREATE RELATIONSHIPS FOR PROVINCES ///////////////////////////
-       
+
 MATCH
         (county:County),(province:Province)
 WHERE
@@ -58,7 +58,7 @@ RETURN
 
 
 
-      
+
 MATCH
         (county:County),(province:Province)
 WHERE
@@ -68,11 +68,11 @@ CREATE
       (county)-[county_in:IN_PROVINCE_OF]->(province)
 RETURN
       county_in;
-      
 
 
-      
-      
+
+
+
 MATCH
         (county:County),(province:Province)
 WHERE
@@ -82,7 +82,7 @@ CREATE
       (county)-[county_in:IN_PROVINCE_OF]->(province)
 RETURN
       county_in;
-      
+
 
 MATCH
         (county:County),(province:Province)
@@ -93,7 +93,7 @@ CREATE
       (county)-[county_in:IN_PROVINCE_OF]->(province)
 RETURN
       county_in;
-      
+
 
 
 /////////////// COUNTRY MAPPING /////////////////////
@@ -107,9 +107,9 @@ CREATE
       (county)-[country_in:IN_COUNTRY_OF]->(country)
 RETURN
       country_in;
-      
-      
-      
+
+
+
 MATCH
         (county:County),(country:Country)
 WHERE
@@ -119,7 +119,7 @@ CREATE
       (county)-[country_in:IN_COUNTRY_OF]->(country)
 RETURN
       country_in;
-      
+
 MATCH
         (county:County),(country:Country)
 WHERE
@@ -129,7 +129,7 @@ CREATE
       (county)-[country_in:IN_COUNTRY_OF]->(country)
 RETURN
       country_in;
-      
+
 MATCH
         (county:County),(country:Country)
 WHERE
@@ -150,3 +150,8 @@ CREATE
       (county)-[country_in:IN_COUNTRY_OF]->(country)
 RETURN
       country_in
+
+////////////// Single property add (Population) ///////
+
+MATCH
+  (county:County) WHERE county.name = 'Galway' SET county.population=250541 return n;
