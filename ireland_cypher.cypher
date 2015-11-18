@@ -155,3 +155,12 @@ RETURN
 
 MATCH
   (county:County) WHERE county.name = 'Galway' SET county.population=250541 return n;
+
+
+///////////// Read Population csv and update or create population property //////////
+///// Windows --- file:c:/path/to/ireland_pop.csv
+///// Linux Mac as below
+
+LOAD CSV FROM "file:///path/to/file/ireland_pop.csv" AS csvLine
+MATCH (county:County { name: csvLine[0]})
+set county.population=toInt(csvLine[1]);
