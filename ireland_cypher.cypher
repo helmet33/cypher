@@ -154,11 +154,11 @@ RETURN
 ////////////// Single property add (Population) ///////
 
 MATCH
-  (county:County) WHERE county.name = 'Galway' SET county.population=250541 return n;
+  (county:County) WHERE county.name = 'Galway' SET county.population=250541 return county;
 
 
 ///////////// Read Population csv and update or create population property //////////
-///// Windows --- file:c:/path/to/ireland_pop.csv
+///// Windows --- file///:c:/path/to/ireland_pop.csv  *** note the / not \    *****
 ///// Linux Mac as below
 
 LOAD CSV FROM "file:///path/to/file/ireland_pop.csv" AS csvLine
