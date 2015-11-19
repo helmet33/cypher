@@ -164,3 +164,9 @@ MATCH
 LOAD CSV FROM "file:///path/to/file/ireland_pop.csv" AS csvLine
 MATCH (county:County { name: csvLine[0]})
 set county.population=toInt(csvLine[1]);
+
+///////// Create neighbour of relationship ///////
+
+LOAD CSV FROM "file:///path/to/file/neighbours.csv" AS csvLine
+MATCH (county:County { name: csvLine[0]}),(county2:County { name: csvLine[1]})
+CREATE (county)-[:NEIGHBOUR_OF]->(county2);
