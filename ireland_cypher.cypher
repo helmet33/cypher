@@ -170,3 +170,8 @@ set county.population=toInt(csvLine[1]);
 LOAD CSV FROM "file:///path/to/file/neighbours.csv" AS csvLine
 MATCH (county:County { name: csvLine[0]}),(county2:County { name: csvLine[1]})
 CREATE (county)-[:NEIGHBOUR_OF]->(county2);
+
+//////// Repair one way matches  /////
+MATCH (n),(r)
+WHERE n-[:NEIGHBOUR_OF]->r AND NOT r-[:NEIGHBOUR_OF]->n
+CREATE r-[:NEIGHBOUR_OF]->n;
