@@ -175,3 +175,10 @@ CREATE (county)-[:NEIGHBOUR_OF]->(county2);
 MATCH (n),(r)
 WHERE n-[:NEIGHBOUR_OF]->r AND NOT r-[:NEIGHBOUR_OF]->n
 CREATE r-[:NEIGHBOUR_OF]->n;
+
+
+//////// A query to see neighbouring counties with pop > 100000
+MATCH (county:County),(county2:County)
+WHERE (county.population >100000 AND county2.population > 100000)
+AND county - [:NEIGHBOUR_OF] -> county2
+RETURN county;
