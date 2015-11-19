@@ -158,7 +158,7 @@ MATCH
 
 
 ///////////// Read Population csv and update or create population property //////////
-///// Windows --- file///:c:/path/to/ireland_pop.csv  *** note the / not \    *****
+///// Windows --- file///c:/path/to/ireland_pop.csv  *** note the / not \    *****
 ///// Linux Mac as below
 
 LOAD CSV FROM "file:///path/to/file/ireland_pop.csv" AS csvLine
